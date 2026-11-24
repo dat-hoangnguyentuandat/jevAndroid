@@ -1,0 +1,26 @@
+#!/system/bin/sh
+INSTALL_DIR=/data/adb/jevandroid
+ENTRY="$INSTALL_DIR/src/cli.mjs"
+
+find_node() {
+  for CANDIDATE in \
+    "$INSTALL_DIR/node/bin/node" \
+    "/data/adb/openclaw/node/bin/node" \
+    "/data/data/com.termux/files/usr/bin/node" \
+    "$(command -v node 2>/dev/null)"
+  do
+    [ -n "$CANDIDATE" ] && [ -x "$CANDIDATE" ] && { echo "$CANDIDATE"; return 0; }
+  done
+  return 1
+}
+
+NODE=$(find_node) || {
+  echo "JevAndroid: Node.js runtime not found." >&2
+  echo "Install GlibClaw, provide /data/adb/jevandroid/node/bin/node, or install Node in Termux." >&2
+  exit 127
+}
+
+export HOME="$INSTALL_DIR/home"
+export TMPDIR="$INSTALL_DIR/tmp"
+mkdir -p "$HOME" "$TMPDIR" "$INSTALL_DIR/logs"
+exec "$NODE" "$ENTRY" "$@"

@@ -1,0 +1,7 @@
+id=jevandroid
+name=JevAndroid
+version=v0.1.0-dev
+versionCode=1
+author=TDat / JevAndroid
+summary=Jev-style indexed Android UI agent for rooted Android (Magisk/KernelSU)
+description=Root-first Android agent: UIAutomator snapshot -> indexed action space -> constrained model decision -> verified Android input execution.

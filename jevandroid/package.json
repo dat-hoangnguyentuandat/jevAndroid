@@ -1,0 +1,11 @@
+{
+  "name": "jevandroid",
+  "version": "0.1.0-dev",
+  "type": "module",
+  "private": true,
+  "description": "Jev-style indexed Android UI agent",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test ../../tests/*.test.mjs"
+  }
+}

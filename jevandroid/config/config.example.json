@@ -1,0 +1,13 @@
+{
+  "provider": {
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "",
+    "model": "gpt-5-mini"
+  },
+  "agent": {
+    "maxSteps": 30,
+    "waitMs": 300,
+    "snapshotLimit": 80,
+    "includeNonInteractiveText": true
+  }
+}
